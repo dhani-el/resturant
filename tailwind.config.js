@@ -6,6 +6,14 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily:{
+      'italliano':["italliano"],
+      'bonheur':["bonheur"],
+      'blacksword':["blacksword"],
+      'inter':["inter"],
+      'inter-itallic':["inter-itallic"],
+
+    }
   },
   plugins: [],
 }
