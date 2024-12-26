@@ -12,6 +12,8 @@ export default {
       'blacksword':["blacksword"],
       'inter':["inter"],
       'inter-itallic':["inter-itallic"],
+      'noto':["noto"],
+      'noto-itallic':["noto-itallic"],
 
     }
   },

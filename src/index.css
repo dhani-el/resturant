@@ -23,4 +23,12 @@
       font-family: 'inter-itallic';
       src: url(./fonts/inter_itallic.ttf);
     }
+    @font-face {
+      font-family: 'noto';
+      src: url(./fonts/noto.ttf);
+    }
+    @font-face {
+      font-family: 'noto-itallic';
+      src: url(./fonts/noto_itallic.ttf);
+    }
   }
