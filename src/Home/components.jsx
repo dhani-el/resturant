@@ -1,5 +1,6 @@
 
 import steakDish1 from "../assets/dish15.png"
+import steakBg from "../assets/bgCombination.png"
 
 
 const navLinks = [
@@ -73,7 +74,8 @@ function AttractionText(){
 }
 
 function AttractionImage({image}){
-    return <div className="w-[60%] h-full flex ">
+    return <div className="w-[60%] h-full flex relative justify-center items-center ">
+                <img src={steakBg} className="w-full absolute "/>
                 <img src={image} className="h-full w-auto rotate-[160deg]"/>
             </div>
 }
