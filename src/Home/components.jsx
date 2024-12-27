@@ -13,6 +13,7 @@ import dish13 from "../assets/dish13.png"
 import dish11 from "../assets/dish11.png"
 import dish4 from "../assets/dish4.png"
 import spoon from "../assets/spoon.png"
+import ingredients from "../assets/ingredients.jpg"
 
 
 const navLinks = [
@@ -169,5 +170,16 @@ export function UpcomingEvents(){
                     </div>
                 </div>
                 <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[30%]" />
+    </div>
+}
+
+export function BestIngredients(){
+    return <div className="flex flex-col items-center w-full h-screen">
+                        <div className="flex flex-col items-center w-[70%]">
+                            <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
+                            <p className="font-noto text-4xl font-extrabold">The Best Ingredients</p>
+                            <p className=" pt-4 font-inter text- font-extralight text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, error tempore delectus earum officia ipsam, tempora mollitia minus ratione reprehenderit praesentium numquam deleniti inventore reiciendis molestias commodi non sint sapiente? Repudiandae deleniti perferendis ullam ex!</p>
+                        </div>
+                        <img src={ingredients} className="h-[65%] pt-6"/>
     </div>
 }
