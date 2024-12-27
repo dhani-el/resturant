@@ -12,6 +12,7 @@ import whitedish from "../assets/whitedish1.png"
 import dish13 from "../assets/dish13.png"
 import dish11 from "../assets/dish11.png"
 import dish4 from "../assets/dish4.png"
+import spoon from "../assets/spoon.png"
 
 
 const navLinks = [
@@ -143,5 +144,30 @@ function ADish({direction,title,summary,image}){
                     <p className="font-bonheur text-3xl text-orange-300 m-0">{title}</p>
                     <p className="text-[0.6rem] font-inter font-light">{summary || "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam."}</p>
                 </div>
+    </div>
+}
+
+export function UpcomingEvents(){
+    return <div className="w-full h-screen relative flex items-center justify-center">
+                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[40%]" />
+                <div className="w-[85%] h-[70%] flex z-10 relative ">
+                    <img src={our_story_dish} className="h-[100%] "  />
+                    <div className="w-[50%] bg-white relative text-black p-16 flex flex-col gap-4 justify-center items-start">
+                        <div>
+                            <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
+                            <p className="font-noto text-4xl font-extrabold">Upcoming Events</p>
+                        </div>
+                        <p className="font-inter text-sm font-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, error tempore delectus earum officia ipsam, tempora mollitia minus ratione reprehenderit</p>
+                        <div className="flex flex-col items-end w-full">
+                            <p className="text-sm font-bold">Barbecue Party</p>
+                            <p className="text-sm font-light">December 26 | Lunch Time | Casual</p>
+                        </div>
+                        <button className="font-inter text-orange-300 text-sm font-light">
+                            More Events
+                        </button>
+                        <img src={spoon} className="h-[40%] absolute bottom-[-20%] right-[-20%] rotate-[245deg]"/>
+                    </div>
+                </div>
+                <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[30%]" />
     </div>
 }
