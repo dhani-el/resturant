@@ -8,6 +8,10 @@ import rodo from "../assets/rodo.png"
 import tomato from "../assets/halftomato.png"
 import our_story_dish from "../assets/ourstory.jpeg"
 import herb from "../assets/herb2.png"
+import whitedish from "../assets/whitedish1.png"
+import dish13 from "../assets/dish13.png"
+import dish11 from "../assets/dish11.png"
+import dish4 from "../assets/dish4.png"
 
 
 const navLinks = [
@@ -90,14 +94,14 @@ function AttractionImage({image}){
                 </div>
             </div>
 }
-0
+
 export function OurStory(){
     return <div className="w-full h-screen relative flex items-center justify-center">
         {/* background overlaped image */}
                 <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-6" />
                 <div className="w-[85%] h-[70%] flex z-10 relative ">
                     <img src={our_story_dish} className="h-[100%] "  />
-                    <div className="w-[50%] bg-white relative text-black p-16 flex flex-col gap-4 items-start">
+                    <div className="w-[50%] bg-white relative text-black p-16 flex flex-col gap-4 justify-center items-start">
                         <div>
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
                             <p className="font-noto text-4xl font-extrabold">Our Story</p>
@@ -110,5 +114,34 @@ export function OurStory(){
                     </div>
                 </div>
                 <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[10%]" />
+    </div>
+}
+
+export function OurMenu(){
+    return <div className="w-full flex flex-col items-center">
+                <div className="flex w-[50%] gap-12 items-center">
+                    <div className="w-[40%] flex flex-col items-end">
+                        <p className="font-bonheur text-xl text-orange-300 ">Discover</p>
+                        <p className="font-noto text-3xl font-extrabold">Our Menu</p>
+                    </div>
+                    <div className="w-[60%]">
+                        <p className="text-[0.6rem] font-inter font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam.</p>
+                    </div>
+                </div>
+                <ADish title={"Appetizer"} summary={""} image={whitedish} />
+                <ADish direction={"rev"} title={"Main Dish"} summary={""} image={dish11} />
+                <ADish title={"Side Dish"} summary={""} image={dish13} />
+                <ADish direction={"rev"} title={"Desert"} summary={""} image={dish4} />
+    </div>
+}
+
+
+function ADish({direction,title,summary,image}){
+    return <div className={`flex ${(direction === "rev") ? "flex-row-reverse":"flex-row"} gap-16 items-center w-[70%] `}>
+                <img src={image} className="w-[35%]"/>
+                <div className="w-[40%]">
+                    <p className="font-bonheur text-3xl text-orange-300 m-0">{title}</p>
+                    <p className="text-[0.6rem] font-inter font-light">{summary || "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam."}</p>
+                </div>
     </div>
 }
