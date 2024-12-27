@@ -4,6 +4,10 @@ import steakBg from "../assets/bgCombination.png"
 import wine from "../assets/wine.png"
 import topleftImg from "../assets/toptomato.png"
 import bottom from "../assets/bottomtomatoandmushroom.png"
+import rodo from "../assets/rodo.png"
+import tomato from "../assets/halftomato.png"
+import our_story_dish from "../assets/ourstory.jpeg"
+import herb from "../assets/herb2.png"
 
 
 const navLinks = [
@@ -85,4 +89,26 @@ function AttractionImage({image}){
                     <img src={image} className="h-full w-auto rotate-[160deg] "/>
                 </div>
             </div>
+}
+0
+export function OurStory(){
+    return <div className="w-full h-screen relative flex items-center justify-center">
+        {/* background overlaped image */}
+                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-6" />
+                <div className="w-[85%] h-[70%] flex z-10 relative ">
+                    <img src={our_story_dish} className="h-[100%] "  />
+                    <div className="w-[50%] bg-white relative text-black p-16 flex flex-col gap-4 items-start">
+                        <div>
+                            <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
+                            <p className="font-noto text-4xl font-extrabold">Our Story</p>
+                        </div>
+                        <p className="font-inter text-sm font-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, error tempore delectus earum officia ipsam, tempora mollitia minus ratione reprehenderit praesentium numquam deleniti inventore reiciendis molestias commodi non sint sapiente? Repudiandae deleniti perferendis ullam ex!</p>
+                        <button className="font-inter text-orange-300 text-sm font-light">
+                            More About Us 
+                        </button>
+                        <img src={herb} className="h-[35%] absolute bottom-[-10%] right-[-5%] rotate-[270deg]"/>
+                    </div>
+                </div>
+                <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[10%]" />
+    </div>
 }
