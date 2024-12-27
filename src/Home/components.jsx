@@ -16,10 +16,9 @@ import spoon from "../assets/spoon.png"
 import ingredients from "../assets/ingredients.jpg"
 import fillinresturant from "../assets/fillinresturant.jpeg"
 import { useState } from "react"
-
+import { CloseCircle, HambergerMenu } from "iconsax-react"
 
 const navLinks = [
-    // home aboutus menu events contact reservation 
     {
         url:"/",
         title:"Home"
@@ -51,20 +50,27 @@ export function Header(){
     const [OpenDrawer,setOpenDrawer] = useState(false);
 
     function openDrawer(){
+        document.getElementById("homePage").style.overflow = "hidden"
+        document.getElementById("root").style.overflow = "hidden"
+        document.body.style.overflow = "hidden"
         setOpenDrawer(()=>true);
     }
     function closeDrawer(){
+        document.getElementById("homePage").style.overflow = "visible"
+        document.getElementById("root").style.overflow = "visible"
+        document.body.style.overflow = "visible"
         setOpenDrawer(()=>false);
     }
 
-    return <div className="flex w-full justify-between py-8 lg:py-4 items-center">
+    return <div className="flex w-full gap-10 lg:gap-0 lg:justify-between py-8 lg:py-4 items-center">
+                <HambergerMenu onClick={openDrawer} className="lg:hidden" />
                 <Logo/>
                 <NavLinks links={navLinks}/>
-                <DrawerNav links={navLinks}/>
+                <DrawerNav links={navLinks} shouldOpen={OpenDrawer} closeFunction={closeDrawer}/>
     </div>
 }
 export function Logo(){
-    return <div className=" text-yellow-300">
+    return <div className=" text-yellow-300 ">
                     <p className="font-blacksword text-2xl lg:text-4xl">Steakhouse</p>
     </div>
 }
@@ -77,10 +83,10 @@ export function NavLinks({links=[]}){
                     }
     </div>
 }
-function DrawerNav({links=[]}){
-    return <div className="p-4 w-screen h-screen absolute top-0 left-[0vw] bg-slate-950 font-noto text-2xl font-semibold z-50 flex flex-col justify-evenly items-center justi lg:hidden">
-                <div className="text-yellow-400 text-5xl self-end">
-                    Close x
+function DrawerNav({links=[],shouldOpen,closeFunction}){
+    return <div className={`p-4 w-screen h-screen absolute top-0 ${shouldOpen ?"left-[0vw]":"left-[110vw]"} bg-slate-950 font-noto text-2xl font-semibold z-50 flex flex-col justify-evenly items-center justi lg:hidden`}>
+                <div onClick={closeFunction} className="self-end flex text-yellow-300 gap-2 items-center font-inter">
+                   <p>CLOSE </p> <CloseCircle className="w-[2.5rem] h-[2.5rem] self-end"/>
                 </div>
                 {
                     links.map(aLink=>{
