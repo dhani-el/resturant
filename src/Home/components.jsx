@@ -14,6 +14,7 @@ import dish11 from "../assets/dish11.png"
 import dish4 from "../assets/dish4.png"
 import spoon from "../assets/spoon.png"
 import ingredients from "../assets/ingredients.jpg"
+import fillinresturant from "../assets/fillinresturant.jpeg"
 
 
 const navLinks = [
@@ -56,7 +57,6 @@ export function Logo(){
                     <p className="font-blacksword text-4xl">Steakhouse</p>
     </div>
 }
-
 export function NavLinks({links=[]}){
     return <div className="flex w-[50%] justify-between">
                     {
@@ -66,15 +66,12 @@ export function NavLinks({links=[]}){
                     }
     </div>
 }
-
 export function Attraction(){
     return <div className="w-full h-[80vh] flex items-center">
                     <AttractionText/>
                     <AttractionImage image={steakDish1} />
     </div>
 }
-
-
 function AttractionText(){
     return <div className="flex flex-col justify-start w-[40%] gap-8 ">
                 <p className="text-6xl font-extrabold font-noto">
@@ -85,7 +82,6 @@ function AttractionText(){
                 </button>
             </div>
 }
-
 function AttractionImage({image}){
     return <div className="w-[60%] h-full flex relative justify-center items-center ">
                 <img src={wine} className=" absolute xl:h-[65%]  xl:right-[25%]"/>
@@ -96,7 +92,6 @@ function AttractionImage({image}){
                 </div>
             </div>
 }
-
 export function OurStory(){
     return <div className="w-full h-screen relative flex items-center justify-center">
         {/* background overlaped image */}
@@ -118,7 +113,6 @@ export function OurStory(){
                 <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[10%]" />
     </div>
 }
-
 export function OurMenu(){
     return <div className="w-full flex flex-col items-center">
                 <div className="flex w-[50%] gap-12 items-center">
@@ -136,8 +130,6 @@ export function OurMenu(){
                 <ADish direction={"rev"} title={"Desert"} summary={""} image={dish4} />
     </div>
 }
-
-
 function ADish({direction,title,summary,image}){
     return <div className={`flex ${(direction === "rev") ? "flex-row-reverse":"flex-row"} gap-16 items-center w-[70%] `}>
                 <img src={image} className="w-[35%]"/>
@@ -147,7 +139,6 @@ function ADish({direction,title,summary,image}){
                 </div>
     </div>
 }
-
 export function UpcomingEvents(){
     return <div className="w-full h-screen relative flex items-center justify-center">
                 <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[40%]" />
@@ -172,7 +163,6 @@ export function UpcomingEvents(){
                 <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[30%]" />
     </div>
 }
-
 export function BestIngredients(){
     return <div className="flex flex-col items-center w-full h-screen">
                         <div className="flex flex-col items-center w-[70%]">
@@ -182,4 +172,39 @@ export function BestIngredients(){
                         </div>
                         <img src={ingredients} className="h-[65%] pt-6"/>
     </div>
+}
+export function Reservation(){
+    return <div className="w-full h-[90vh] overflow-hidden relative">
+                <img className="w-full z-0 " src={fillinresturant} />
+                <div className="w-full h-full absolute top-0 left-0 z-10 bg-black opacity-30">
+
+                </div>
+                <div className="w-full h-full absolute top-0 z-20 left-0 flex gap-16 flex-col items-center justify-center">
+                    <div>
+                        <p className="text-center font-bonheur text-2xl">Reservation</p>
+                        <p className="text-center font-noto font-extrabold text-4xl">Book Your Table</p>
+                    </div>
+                    <button className="w-fit border-white border-solid border-[0.02rem] py-2 px-3 font-noto font-bold text-sm">
+                        Online Booking
+                    </button>
+                </div>
+    </div>
+}
+export function Footer(){
+    return <div className="p-12  w-full flex justify-between items-center">
+                <div className="w-[25%] pt-8 flex flex-col ">
+                    <p className="text-yellow-300 " >Location</p>
+                    <p className="text-noto font-light w-[60%] pt-4" >5,mufutau shobola ogba lagos,Nigeria</p>
+                </div>
+                <div className="w-[25%] pt-8">
+                    <p className="text-yellow-300" >Working Hours</p>
+                    <p className=" pt-4" >Monday - Thursday</p>
+                    <p className=" " >Friday </p>
+                    <p className=" " >Saturday - Sunday</p>
+                </div>
+                <div className="h-full flex flex-col justify-center items-center">
+                    <p className="font-bonheur text-4xl text-yellow-300 ">SteakHouse</p>
+                    <p className="pt-4">eloh.daniel@gmail.com</p>
+                </div>
+            </div>
 }
