@@ -15,6 +15,7 @@ import dish4 from "../assets/dish4.png"
 import spoon from "../assets/spoon.png"
 import ingredients from "../assets/ingredients.jpg"
 import fillinresturant from "../assets/fillinresturant.jpeg"
+import { useState } from "react"
 
 
 const navLinks = [
@@ -23,10 +24,7 @@ const navLinks = [
         url:"/",
         title:"Home"
     },
-    {
-        url:"/aboutus",
-        title:"About Us"
-    },
+
     {
         url:"/menu",
         title:"Menu"
@@ -40,30 +38,55 @@ const navLinks = [
         title:"Contact"
     },
     {
+        url:"/aboutus",
+        title:"About Us"
+    },
+    {
         url:"/reservation",
         title:"Reservation"
     },
 ]
-
 export function Header(){
-    return <div className="flex w-full justify-between py-4 items-center">
+
+    const [OpenDrawer,setOpenDrawer] = useState(false);
+
+    function openDrawer(){
+        setOpenDrawer(()=>true);
+    }
+    function closeDrawer(){
+        setOpenDrawer(()=>false);
+    }
+
+    return <div className="flex w-full justify-between py-8 lg:py-4 items-center">
                 <Logo/>
                 <NavLinks links={navLinks}/>
+                <DrawerNav links={navLinks}/>
     </div>
 }
-
 export function Logo(){
     return <div className=" text-yellow-300">
-                    <p className="font-blacksword text-4xl">Steakhouse</p>
+                    <p className="font-blacksword text-2xl lg:text-4xl">Steakhouse</p>
     </div>
 }
 export function NavLinks({links=[]}){
-    return <div className="flex w-[50%] justify-between">
+    return <div className="hidden lg:flex w-[50%] justify-between">
                     {
                         links.map(link=>{
                             return <a href={link.url} className="text-sm font-inter font-normal">{link.title}</a>
                         })
                     }
+    </div>
+}
+function DrawerNav({links=[]}){
+    return <div className="p-4 w-screen h-screen absolute top-0 left-[0vw] bg-slate-950 font-noto text-2xl font-semibold z-50 flex flex-col justify-evenly items-center justi lg:hidden">
+                <div className="text-yellow-400 text-5xl self-end">
+                    Close x
+                </div>
+                {
+                    links.map(aLink=>{
+                                return <a href={aLink.url}>{aLink.title}</a>
+                    })
+                }
     </div>
 }
 export function Attraction(){
