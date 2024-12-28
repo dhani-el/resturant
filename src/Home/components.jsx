@@ -168,11 +168,11 @@ function ADish({direction,title,summary,image}){
     </div>
 }
 export function UpcomingEvents(){
-    return <div className="w-full h-screen relative flex items-center justify-center">
-                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[40%]" />
-                <div className="w-[85%] h-[70%] flex z-10 relative ">
-                    <img src={our_story_dish} className="h-[100%] "  />
-                    <div className="w-[50%] bg-white relative text-black p-16 flex flex-col gap-4 justify-center items-start">
+    return <div className="w-full pt-16 md:pt-0 md:h-screen relative flex items-center justify-center">
+                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[4%] md:left-6" />
+                <div className="w-full h-full md:w-[85%] md:h-[70%] flex flex-col-reverse md:flex-row z-10 relative ">
+                    <img src={our_story_dish} className="w-[100%] md:h-[100%] md:w-auto "  />
+                    <div className="md:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
                         <div>
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
                             <p className="font-noto text-4xl font-extrabold">Upcoming Events</p>
@@ -188,7 +188,7 @@ export function UpcomingEvents(){
                         <img src={spoon} className="h-[40%] absolute bottom-[-20%] right-[-20%] rotate-[245deg]"/>
                     </div>
                 </div>
-                <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[30%]" />
+                <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[10%]" />
     </div>
 }
 export function BestIngredients(){
