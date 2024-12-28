@@ -202,15 +202,15 @@ export function BestIngredients(){
     </div>
 }
 export function Reservation(){
-    return <div className="w-full h-[90vh] overflow-hidden relative">
+    return <div className="w-full md:h-[90vh] overflow-hidden relative">
                 <img className="w-full z-0 " src={fillinresturant} />
                 <div className="w-full h-full absolute top-0 left-0 z-10 bg-black opacity-30">
 
                 </div>
-                <div className="w-full h-full absolute top-0 z-20 left-0 flex gap-16 flex-col items-center justify-center">
+                <div className="w-full h-full absolute top-0 z-20 left-0 flex gap-8 md:gap-16 flex-col items-center justify-center">
                     <div>
                         <p className="text-center font-bonheur text-2xl">Reservation</p>
-                        <p className="text-center font-noto font-extrabold text-4xl">Book Your Table</p>
+                        <p className="text-center font-noto font-extrabold text-2xl md:text-4xl">Book Your Table</p>
                     </div>
                     <button className="w-fit border-white border-solid border-[0.02rem] py-2 px-3 font-noto font-bold text-sm">
                         Online Booking
