@@ -192,13 +192,13 @@ export function UpcomingEvents(){
     </div>
 }
 export function BestIngredients(){
-    return <div className="flex flex-col items-center w-full h-screen">
-                        <div className="flex flex-col items-center w-[70%]">
+    return <div className="flex flex-col items-center w-full md:h-screen">
+                        <div className="flex flex-col items-center md:w-[70%]">
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
-                            <p className="font-noto text-4xl font-extrabold">The Best Ingredients</p>
-                            <p className=" pt-4 font-inter text- font-extralight text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, error tempore delectus earum officia ipsam, tempora mollitia minus ratione reprehenderit praesentium numquam deleniti inventore reiciendis molestias commodi non sint sapiente? Repudiandae deleniti perferendis ullam ex!</p>
+                            <p className="font-noto text-3xl md:text-4xl font-extrabold">The Best Ingredients</p>
+                            <p className=" pt-4 font-inter text-sm md:text-base font-extralight text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, error tempore delectus earum officia ipsam, tempora mollitia minus ratione reprehenderit praesentium numquam deleniti inventore reiciendis molestias commodi non sint sapiente? Repudiandae deleniti perferendis ullam ex!</p>
                         </div>
-                        <img src={ingredients} className="h-[65%] pt-6"/>
+                        <img src={ingredients} className="w-full md:w-auto md:h-[65%] pt-6"/>
     </div>
 }
 export function Reservation(){
