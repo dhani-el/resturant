@@ -15,18 +15,15 @@ import dish4 from "../assets/dish4.png"
 import spoon from "../assets/spoon.png"
 import ingredients from "../assets/ingredients.jpg"
 import fillinresturant from "../assets/fillinresturant.jpeg"
-
+import { useState } from "react"
+import { CloseCircle, HambergerMenu } from "iconsax-react"
 
 const navLinks = [
-    // home aboutus menu events contact reservation 
     {
         url:"/",
         title:"Home"
     },
-    {
-        url:"/aboutus",
-        title:"About Us"
-    },
+
     {
         url:"/menu",
         title:"Menu"
@@ -40,25 +37,45 @@ const navLinks = [
         title:"Contact"
     },
     {
+        url:"/aboutus",
+        title:"About Us"
+    },
+    {
         url:"/reservation",
         title:"Reservation"
     },
 ]
-
 export function Header(){
-    return <div className="flex w-full justify-between py-4 items-center">
+
+    const [OpenDrawer,setOpenDrawer] = useState(false);
+
+    function openDrawer(){
+        document.getElementById("homePage").style.overflow = "hidden"
+        document.getElementById("root").style.overflow = "hidden"
+        document.body.style.overflow = "hidden"
+        setOpenDrawer(()=>true);
+    }
+    function closeDrawer(){
+        document.getElementById("homePage").style.overflow = "visible"
+        document.getElementById("root").style.overflow = "visible"
+        document.body.style.overflow = "visible"
+        setOpenDrawer(()=>false);
+    }
+
+    return <div className="flex w-full gap-10 lg:gap-0 lg:justify-between py-8 lg:py-4 items-center">
+                <HambergerMenu onClick={openDrawer} className="lg:hidden" />
                 <Logo/>
                 <NavLinks links={navLinks}/>
+                <DrawerNav links={navLinks} shouldOpen={OpenDrawer} closeFunction={closeDrawer}/>
     </div>
 }
-
 export function Logo(){
-    return <div className=" text-yellow-300">
-                    <p className="font-blacksword text-4xl">Steakhouse</p>
+    return <div className=" text-yellow-300 ">
+                    <p className="font-blacksword text-2xl lg:text-4xl">Steakhouse</p>
     </div>
 }
 export function NavLinks({links=[]}){
-    return <div className="flex w-[50%] justify-between">
+    return <div className="hidden lg:flex w-[50%] justify-between">
                     {
                         links.map(link=>{
                             return <a href={link.url} className="text-sm font-inter font-normal">{link.title}</a>
@@ -66,15 +83,27 @@ export function NavLinks({links=[]}){
                     }
     </div>
 }
+function DrawerNav({links=[],shouldOpen,closeFunction}){
+    return <div className={`p-4 w-screen h-screen absolute top-0 ${shouldOpen ?"left-[0vw]":"left-[110vw]"} bg-slate-950 font-noto text-2xl font-semibold z-50 flex flex-col justify-evenly items-center justi lg:hidden`}>
+                <div onClick={closeFunction} className="self-end flex text-yellow-300 gap-2 items-center font-inter">
+                   <p>CLOSE </p> <CloseCircle className="w-[2.5rem] h-[2.5rem] self-end"/>
+                </div>
+                {
+                    links.map(aLink=>{
+                                return <a href={aLink.url}>{aLink.title}</a>
+                    })
+                }
+    </div>
+}
 export function Attraction(){
-    return <div className="w-full h-[80vh] flex items-center">
+    return <div className="w-full h-[70vh] justify-center landscape:h-[80vh] flex flex-col md:flex-row md:justify-start items-center ">
                     <AttractionText/>
                     <AttractionImage image={steakDish1} />
     </div>
 }
 function AttractionText(){
-    return <div className="flex flex-col justify-start w-[40%] gap-8 ">
-                <p className="text-6xl font-extrabold font-noto">
+    return <div className="flex flex-col justify-start items-center md:items-start w-full md:w-[40%] gap-8 ">
+                <p className="text-3xl md:text-6xl font-extrabold font-noto">
                     A Premium And Authentic Steakhouse
                 </p>
                 <button className="w-fit border-white border-solid border-[0.02rem] py-2 px-3 font-noto font-bold text-sm">
@@ -83,22 +112,21 @@ function AttractionText(){
             </div>
 }
 function AttractionImage({image}){
-    return <div className="w-[60%] h-full flex relative justify-center items-center ">
-                <img src={wine} className=" absolute xl:h-[65%]  xl:right-[25%]"/>
-                <img src={topleftImg} className=" absolute xl:h-[30%]  xl:left-[-10%] xl:top-0"/>
-                <img src={bottom} className=" absolute xl:h-[30%]  xl:left-[-12%] xl:bottom-[20%]"/>
-                <div className="xl:w-[90%] xl:h-[90%] flex items-center ">
-                    <img src={image} className="h-full w-auto rotate-[160deg] "/>
+    return <div className="pt-8 md:pt-0 w-full md:w-[60%] md:h-full flex md:flex-row relative justify-center items-center ">
+                <img src={wine} className=" absolute h-[70%] md:h-[65%] right-0  md:right-[25%]"/>
+                <img src={topleftImg} className=" absolute h-[30%] left-0 top-0 md:h-[30%]  md:left-[-10%] md:top-0"/>
+                <img src={bottom} className=" absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-12%] md:bottom-[20%]"/>
+                <div className=" w-full md:w-[90%] md:h-[90%] flex items-center justify-center md:justify-start ">
+                    <img src={image} className="w-[60%] h-auto md:h-full md:w-auto rotate-[160deg] "/>
                 </div>
             </div>
 }
 export function OurStory(){
-    return <div className="w-full h-screen relative flex items-center justify-center">
-        {/* background overlaped image */}
-                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-6" />
-                <div className="w-[85%] h-[70%] flex z-10 relative ">
-                    <img src={our_story_dish} className="h-[100%] "  />
-                    <div className="w-[50%] bg-white relative text-black p-16 flex flex-col gap-4 justify-center items-start">
+    return <div className="w-full pt-16 md:pt-0 md:h-screen relative flex items-center justify-center">
+                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[4%] md:left-6" />
+                <div className="w-full h-full md:w-[85%] md:h-[70%] flex flex-col-reverse md:flex-row z-10 relative ">
+                    <img src={our_story_dish} className="w-[100%] md:h-[100%] md:w-auto "  />
+                    <div className="md:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
                         <div>
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
                             <p className="font-noto text-4xl font-extrabold">Our Story</p>
@@ -115,12 +143,12 @@ export function OurStory(){
 }
 export function OurMenu(){
     return <div className="w-full flex flex-col items-center">
-                <div className="flex w-[50%] gap-12 items-center">
-                    <div className="w-[40%] flex flex-col items-end">
+                <div className="flex flex-col w-full md:flex-row md:w-[50%] gap-6 md:gap-12 items-center">
+                    <div className="w-full items-center md:w-[40%] flex flex-col md:items-end">
                         <p className="font-bonheur text-xl text-orange-300 ">Discover</p>
                         <p className="font-noto text-3xl font-extrabold">Our Menu</p>
                     </div>
-                    <div className="w-[60%]">
+                    <div className="md:w-[60%]">
                         <p className="text-[0.6rem] font-inter font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam.</p>
                     </div>
                 </div>
@@ -131,9 +159,9 @@ export function OurMenu(){
     </div>
 }
 function ADish({direction,title,summary,image}){
-    return <div className={`flex ${(direction === "rev") ? "flex-row-reverse":"flex-row"} gap-16 items-center w-[70%] `}>
-                <img src={image} className="w-[35%]"/>
-                <div className="w-[40%]">
+    return <div className={`pb-6 flex ${(direction === "rev") ? "md:flex-row-reverse flex-col":"flex-col md:flex-row"} gap-9 md:gap-16 items-center md:w-[70%] `}>
+                <img src={image} className="w-[75%] md:w-[35%]"/>
+                <div className="w-[75%] md:w-[40%]">
                     <p className="font-bonheur text-3xl text-orange-300 m-0">{title}</p>
                     <p className="text-[0.6rem] font-inter font-light">{summary || "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam."}</p>
                 </div>

@@ -32,3 +32,12 @@
       src: url(./fonts/noto_itallic.ttf);
     }
   }
+
+
+  html,body{
+    overflow-x: hidden;
+  }
+
+  #root{
+    height: 100vh;
+  }
