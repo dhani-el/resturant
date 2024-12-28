@@ -143,12 +143,12 @@ export function OurStory(){
 }
 export function OurMenu(){
     return <div className="w-full flex flex-col items-center">
-                <div className="flex w-[50%] gap-12 items-center">
-                    <div className="w-[40%] flex flex-col items-end">
+                <div className="flex flex-col w-full md:flex-row md:w-[50%] gap-6 md:gap-12 items-center">
+                    <div className="w-full items-center md:w-[40%] flex flex-col md:items-end">
                         <p className="font-bonheur text-xl text-orange-300 ">Discover</p>
                         <p className="font-noto text-3xl font-extrabold">Our Menu</p>
                     </div>
-                    <div className="w-[60%]">
+                    <div className="md:w-[60%]">
                         <p className="text-[0.6rem] font-inter font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam.</p>
                     </div>
                 </div>
@@ -159,9 +159,9 @@ export function OurMenu(){
     </div>
 }
 function ADish({direction,title,summary,image}){
-    return <div className={`flex ${(direction === "rev") ? "flex-row-reverse":"flex-row"} gap-16 items-center w-[70%] `}>
-                <img src={image} className="w-[35%]"/>
-                <div className="w-[40%]">
+    return <div className={`pb-6 flex ${(direction === "rev") ? "md:flex-row-reverse flex-col":"flex-col md:flex-row"} gap-9 md:gap-16 items-center md:w-[70%] `}>
+                <img src={image} className="w-[75%] md:w-[35%]"/>
+                <div className="w-[75%] md:w-[40%]">
                     <p className="font-bonheur text-3xl text-orange-300 m-0">{title}</p>
                     <p className="text-[0.6rem] font-inter font-light">{summary || "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam."}</p>
                 </div>
