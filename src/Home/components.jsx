@@ -96,7 +96,7 @@ function DrawerNav({links=[],shouldOpen,closeFunction}){
     </div>
 }
 export function Attraction(){
-    return <div className="w-full h-[50vh] landscape:h-[80vh] flex flex-col md:flex-row items-center">
+    return <div className="w-full h-[70vh] justify-center landscape:h-[80vh] flex flex-col md:flex-row md:justify-start items-center ">
                     <AttractionText/>
                     <AttractionImage image={steakDish1} />
     </div>
@@ -112,7 +112,7 @@ function AttractionText(){
             </div>
 }
 function AttractionImage({image}){
-    return <div className="pt-8 md:pt-0 w-full md:w-[60%] h-full flex md:flex-row relative justify-center items-center ">
+    return <div className="pt-8 md:pt-0 w-full md:w-[60%] md:h-full flex md:flex-row relative justify-center items-center ">
                 <img src={wine} className=" absolute h-[70%] md:h-[65%] right-0  md:right-[25%]"/>
                 <img src={topleftImg} className=" absolute h-[30%] left-0 top-0 md:h-[30%]  md:left-[-10%] md:top-0"/>
                 <img src={bottom} className=" absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-12%] md:bottom-[20%]"/>
@@ -122,11 +122,11 @@ function AttractionImage({image}){
             </div>
 }
 export function OurStory(){
-    return <div className="w-full h-screen relative flex items-center justify-center">
-                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-6" />
-                <div className="w-[85%] h-[70%] flex z-10 relative ">
-                    <img src={our_story_dish} className="h-[100%] "  />
-                    <div className="w-[50%] bg-white relative text-black p-16 flex flex-col gap-4 justify-center items-start">
+    return <div className="w-full pt-16 md:pt-0 md:h-screen relative flex items-center justify-center">
+                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[4%] md:left-6" />
+                <div className="w-full h-full md:w-[85%] md:h-[70%] flex flex-col-reverse md:flex-row z-10 relative ">
+                    <img src={our_story_dish} className="w-[100%] md:h-[100%] md:w-auto "  />
+                    <div className="md:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
                         <div>
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
                             <p className="font-noto text-4xl font-extrabold">Our Story</p>
