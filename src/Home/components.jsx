@@ -96,13 +96,13 @@ function DrawerNav({links=[],shouldOpen,closeFunction}){
     </div>
 }
 export function Attraction(){
-    return <div className="z-0 w-full h-[70vh] justify-center landscape:h-[80vh] flex flex-col md:flex-row md:justify-start items-center ">
+    return <div className="z-0 w-full h-[70vh] justify-center landscape:h-[80vh] flex flex-col lg:flex-row lg:justify-start items-center ">
                     <AttractionText/>
                     <AttractionImage image={steakDish1} />
     </div>
 }
 function AttractionText(){
-    return <div className=" flex flex-col justify-start items-center md:items-start w-full md:w-[40%] gap-8 ">
+    return <div className=" flex flex-col justify-start items-center lg:items-start w-full lg:w-[40%] gap-8 ">
                 <p className="text-3xl md:text-6xl font-extrabold font-noto">
                     A Premium And Authentic Steakhouse
                 </p>
@@ -113,20 +113,20 @@ function AttractionText(){
 }
 function AttractionImage({image}){
     return <div className="pt-8 md:pt-0 w-full md:w-[60%] md:h-full flex md:flex-row relative justify-center items-center ">
-                <img src={wine} className=" absolute h-[70%] md:h-[65%] right-0  md:right-[25%]"/>
+                <img src={wine} className=" absolute h-[70%] md:h-[65%] right-0 md:right-[-15%] lg:right-[25%]"/>
                 <img src={topleftImg} className=" absolute h-[30%] left-0 top-0 md:h-[30%]  md:left-[-10%] md:top-0"/>
-                <img src={bottom} className=" absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-12%] md:bottom-[20%]"/>
+                <img src={bottom} className=" absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-20%] lg:left-[-12%] md:bottom-[20%]"/>
                 <div className=" w-full md:w-[90%] md:h-[90%] flex items-center justify-center md:justify-start ">
                     <img src={image} className="w-[60%] h-auto md:h-full md:w-auto rotate-[160deg] "/>
                 </div>
             </div>
 }
 export function OurStory(){
-    return <div className="z-0 w-full pt-16 md:pt-0 md:h-screen relative flex items-center justify-center">
-                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[4%] md:left-6" />
-                <div className="w-full h-full md:w-[85%] md:h-[70%] flex flex-col-reverse md:flex-row z-10 relative ">
-                    <img src={our_story_dish} className="w-[100%] md:h-[100%] md:w-auto "  />
-                    <div className="md:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
+    return <div className="z-0 w-full  pt-16 lg:pt-0 lg:h-screen relative flex items-center justify-center">
+                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[4%] lg:left-6" />
+                <div className="w-full h-full md:w-[70%] lg:w-[85%] lg:h-[70%] flex flex-col-reverse lg:flex-row z-10 relative ">
+                    <img src={our_story_dish} className="w-[100%] lg:h-[100%] lg:w-auto "  />
+                    <div className="lg:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
                         <div>
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
                             <p className="font-noto text-4xl font-extrabold">Our Story</p>
@@ -143,12 +143,12 @@ export function OurStory(){
 }
 export function OurMenu(){
     return <div className="z-0 w-full flex flex-col items-center">
-                <div className="flex flex-col w-full md:flex-row md:w-[50%] gap-6 md:gap-12 items-center">
-                    <div className="w-full items-center md:w-[40%] flex flex-col md:items-end">
+                <div className="flex flex-col w-full lg:flex-row lg:w-[50%] gap-6 lg:gap-12 items-center">
+                    <div className="w-full items-center lg:w-[40%] flex flex-col lg:items-end">
                         <p className="font-bonheur text-xl text-orange-300 ">Discover</p>
                         <p className="font-noto text-3xl font-extrabold">Our Menu</p>
                     </div>
-                    <div className="md:w-[60%]">
+                    <div className="md:w-[80%] md:text-center lg:w-[60%]">
                         <p className="text-[0.6rem] font-inter font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam.</p>
                     </div>
                 </div>
@@ -159,20 +159,20 @@ export function OurMenu(){
     </div>
 }
 function ADish({direction,title,summary,image}){
-    return <div className={`pb-6 flex ${(direction === "rev") ? "md:flex-row-reverse flex-col":"flex-col md:flex-row"} gap-9 md:gap-16 items-center md:w-[70%] `}>
-                <img src={image} className="w-[75%] md:w-[35%]"/>
-                <div className="w-[75%] md:w-[40%]">
+    return <div className={`px-0 md:px-8 lg:px-0 pb-6 flex ${(direction === "rev") ? "lg:flex-row-reverse flex-col":"flex-col lg:flex-row"} gap-9 md:gap-0 lg:gap-16 items-center lg:w-[70%] `}>
+                <img src={image} className={`w-[75%] md:w-[50%] lg:w-[35%] ${(direction === "rev") ? "self-end":"self-start"} lg:self-center`}/>
+                <div className={`px-0 md:px-4 lg:px-0 w-[75%] ${(direction === "rev") ? "self-start":"self-end"} lg:self-center md:w-[50%] lg:w-[40%]`}>
                     <p className="font-bonheur text-3xl text-orange-300 m-0">{title}</p>
                     <p className="text-[0.6rem] font-inter font-light">{summary || "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam."}</p>
                 </div>
     </div>
 }
 export function UpcomingEvents(){
-    return <div className="w-full pt-16 md:pt-0 md:h-screen relative flex items-center justify-center">
-                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[4%] md:left-6" />
-                <div className="w-full h-full md:w-[85%] md:h-[70%] flex flex-col-reverse md:flex-row z-10 relative ">
-                    <img src={our_story_dish} className="w-[100%] md:h-[100%] md:w-auto "  />
-                    <div className="md:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
+    return <div className="z-0 w-full  pt-16 lg:pt-0 lg:h-screen relative flex items-center justify-center">
+                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[4%] lg:left-6" />
+                <div className="w-full h-full md:w-[70%] lg:w-[85%] lg:h-[70%] flex flex-col-reverse lg:flex-row z-10 relative">
+                    <img src={our_story_dish} className="w-[100%] lg:h-[100%] lg:w-auto "  />
+                    <div className="lg:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
                         <div>
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
                             <p className="font-noto text-4xl font-extrabold">Upcoming Events</p>
@@ -202,7 +202,7 @@ export function BestIngredients(){
     </div>
 }
 export function Reservation(){
-    return <div className="w-full md:h-[90vh] overflow-hidden relative">
+    return <div className="w-full lg:h-[90vh] overflow-hidden relative">
                 <img className="w-full z-0 " src={fillinresturant} />
                 <div className="w-full h-full absolute top-0 left-0 z-10 bg-black opacity-30">
 
