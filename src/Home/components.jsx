@@ -15,8 +15,13 @@ import dish4 from "../assets/dish4.png"
 import spoon from "../assets/spoon.png"
 import ingredients from "../assets/ingredients.jpg"
 import fillinresturant from "../assets/fillinresturant.jpeg"
-import { useState } from "react"
+import { useEffect, useState,useRef } from "react"
 import { CloseCircle, HambergerMenu } from "iconsax-react"
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
+
 
 const navLinks = [
     {
@@ -112,12 +117,17 @@ function AttractionText(){
             </div>
 }
 function AttractionImage({image}){
+    const panRef = useRef(null);
+    useGSAP(()=>{
+        gsap.to("#pan",{y:"-2vh",duration:3})
+    })
+
     return <div className="pt-8 md:pt-0 w-full md:w-[60%] md:h-full flex md:flex-row relative justify-center items-center ">
                 <img src={wine} className=" absolute h-[70%] md:h-[65%] right-0 md:right-[-15%] lg:right-[25%]"/>
                 <img src={topleftImg} className=" absolute h-[30%] left-0 top-0 md:h-[30%]  md:left-[-10%] md:top-0"/>
                 <img src={bottom} className=" absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-20%] lg:left-[-12%] md:bottom-[20%]"/>
                 <div className=" w-full md:w-[90%] md:h-[90%] flex items-center justify-center md:justify-start ">
-                    <img src={image} className="w-[60%] h-auto md:h-full md:w-auto rotate-[160deg] "/>
+                    <img id = "pan" src={image} ref={panRef} className="w-[60%] h-auto md:h-full md:w-auto rotate-[160deg] "/>
                 </div>
             </div>
 }
