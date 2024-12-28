@@ -96,14 +96,14 @@ function DrawerNav({links=[],shouldOpen,closeFunction}){
     </div>
 }
 export function Attraction(){
-    return <div className="w-full h-[80vh] flex items-center">
+    return <div className="w-full h-[50vh] landscape:h-[80vh] flex flex-col md:flex-row items-center">
                     <AttractionText/>
                     <AttractionImage image={steakDish1} />
     </div>
 }
 function AttractionText(){
-    return <div className="flex flex-col justify-start w-[40%] gap-8 ">
-                <p className="text-6xl font-extrabold font-noto">
+    return <div className="flex flex-col justify-start items-center md:items-start w-full md:w-[40%] gap-8 ">
+                <p className="text-3xl md:text-6xl font-extrabold font-noto">
                     A Premium And Authentic Steakhouse
                 </p>
                 <button className="w-fit border-white border-solid border-[0.02rem] py-2 px-3 font-noto font-bold text-sm">
@@ -112,18 +112,17 @@ function AttractionText(){
             </div>
 }
 function AttractionImage({image}){
-    return <div className="w-[60%] h-full flex relative justify-center items-center ">
-                <img src={wine} className=" absolute xl:h-[65%]  xl:right-[25%]"/>
-                <img src={topleftImg} className=" absolute xl:h-[30%]  xl:left-[-10%] xl:top-0"/>
-                <img src={bottom} className=" absolute xl:h-[30%]  xl:left-[-12%] xl:bottom-[20%]"/>
-                <div className="xl:w-[90%] xl:h-[90%] flex items-center ">
-                    <img src={image} className="h-full w-auto rotate-[160deg] "/>
+    return <div className="pt-8 md:pt-0 w-full md:w-[60%] h-full flex md:flex-row relative justify-center items-center ">
+                <img src={wine} className=" absolute h-[70%] md:h-[65%] right-0  md:right-[25%]"/>
+                <img src={topleftImg} className=" absolute h-[30%] left-0 top-0 md:h-[30%]  md:left-[-10%] md:top-0"/>
+                <img src={bottom} className=" absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-12%] md:bottom-[20%]"/>
+                <div className=" w-full md:w-[90%] md:h-[90%] flex items-center justify-center md:justify-start ">
+                    <img src={image} className="w-[60%] h-auto md:h-full md:w-auto rotate-[160deg] "/>
                 </div>
             </div>
 }
 export function OurStory(){
     return <div className="w-full h-screen relative flex items-center justify-center">
-        {/* background overlaped image */}
                 <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-6" />
                 <div className="w-[85%] h-[70%] flex z-10 relative ">
                     <img src={our_story_dish} className="h-[100%] "  />
