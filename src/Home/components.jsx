@@ -50,19 +50,19 @@ export function Header(){
     const [OpenDrawer,setOpenDrawer] = useState(false);
 
     function openDrawer(){
-        document.getElementById("homePage").style.overflow = "hidden"
-        document.getElementById("root").style.overflow = "hidden"
-        document.body.style.overflow = "hidden"
+        document.getElementById("homePage").style.overflowY = "hidden"
+        document.getElementById("root").style.overflowY = "hidden"
+        document.body.style.overflowY = "hidden"
         setOpenDrawer(()=>true);
     }
     function closeDrawer(){
-        document.getElementById("homePage").style.overflow = "visible"
-        document.getElementById("root").style.overflow = "visible"
-        document.body.style.overflow = "visible"
+        document.getElementById("homePage").style.overflowY = "visible"
+        document.getElementById("root").style.overflowY = "visible"
+        document.body.style.overflowY = "visible"
         setOpenDrawer(()=>false);
     }
 
-    return <div className="flex w-full gap-10 lg:gap-0 lg:justify-between py-8 lg:py-4 items-center">
+    return <div className="z-10  flex w-full gap-10 lg:gap-0 lg:justify-between py-8 lg:py-4 items-center overflow-x-hidden">
                 <HambergerMenu onClick={openDrawer} className="lg:hidden" />
                 <Logo/>
                 <NavLinks links={navLinks}/>
@@ -84,7 +84,7 @@ export function NavLinks({links=[]}){
     </div>
 }
 function DrawerNav({links=[],shouldOpen,closeFunction}){
-    return <div className={`p-4 w-screen h-screen absolute top-0 ${shouldOpen ?"left-[0vw]":"left-[110vw]"} bg-slate-950 font-noto text-2xl font-semibold z-50 flex flex-col justify-evenly items-center justi lg:hidden`}>
+    return <div className={`overflow-hidden p-4 w-screen h-screen absolute top-0 ${shouldOpen ?"left-[0rem]":"left-[110vw]"} bg-slate-950 font-noto text-2xl font-semibold z-50 flex flex-col justify-evenly items-center lg:hidden`}>
                 <div onClick={closeFunction} className="self-end flex text-yellow-300 gap-2 items-center font-inter">
                    <p>CLOSE </p> <CloseCircle className="w-[2.5rem] h-[2.5rem] self-end"/>
                 </div>
@@ -96,13 +96,13 @@ function DrawerNav({links=[],shouldOpen,closeFunction}){
     </div>
 }
 export function Attraction(){
-    return <div className="w-full h-[70vh] justify-center landscape:h-[80vh] flex flex-col md:flex-row md:justify-start items-center ">
+    return <div className="z-0 w-full h-[70vh] justify-center landscape:h-[80vh] flex flex-col md:flex-row md:justify-start items-center ">
                     <AttractionText/>
                     <AttractionImage image={steakDish1} />
     </div>
 }
 function AttractionText(){
-    return <div className="flex flex-col justify-start items-center md:items-start w-full md:w-[40%] gap-8 ">
+    return <div className=" flex flex-col justify-start items-center md:items-start w-full md:w-[40%] gap-8 ">
                 <p className="text-3xl md:text-6xl font-extrabold font-noto">
                     A Premium And Authentic Steakhouse
                 </p>
@@ -122,7 +122,7 @@ function AttractionImage({image}){
             </div>
 }
 export function OurStory(){
-    return <div className="w-full pt-16 md:pt-0 md:h-screen relative flex items-center justify-center">
+    return <div className="z-0 w-full pt-16 md:pt-0 md:h-screen relative flex items-center justify-center">
                 <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[4%] md:left-6" />
                 <div className="w-full h-full md:w-[85%] md:h-[70%] flex flex-col-reverse md:flex-row z-10 relative ">
                     <img src={our_story_dish} className="w-[100%] md:h-[100%] md:w-auto "  />
@@ -142,7 +142,7 @@ export function OurStory(){
     </div>
 }
 export function OurMenu(){
-    return <div className="w-full flex flex-col items-center">
+    return <div className="z-0 w-full flex flex-col items-center">
                 <div className="flex flex-col w-full md:flex-row md:w-[50%] gap-6 md:gap-12 items-center">
                     <div className="w-full items-center md:w-[40%] flex flex-col md:items-end">
                         <p className="font-bonheur text-xl text-orange-300 ">Discover</p>
@@ -168,11 +168,11 @@ function ADish({direction,title,summary,image}){
     </div>
 }
 export function UpcomingEvents(){
-    return <div className="w-full h-screen relative flex items-center justify-center">
-                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[40%]" />
-                <div className="w-[85%] h-[70%] flex z-10 relative ">
-                    <img src={our_story_dish} className="h-[100%] "  />
-                    <div className="w-[50%] bg-white relative text-black p-16 flex flex-col gap-4 justify-center items-start">
+    return <div className="w-full pt-16 md:pt-0 md:h-screen relative flex items-center justify-center">
+                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[4%] md:left-6" />
+                <div className="w-full h-full md:w-[85%] md:h-[70%] flex flex-col-reverse md:flex-row z-10 relative ">
+                    <img src={our_story_dish} className="w-[100%] md:h-[100%] md:w-auto "  />
+                    <div className="md:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
                         <div>
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
                             <p className="font-noto text-4xl font-extrabold">Upcoming Events</p>
@@ -188,29 +188,29 @@ export function UpcomingEvents(){
                         <img src={spoon} className="h-[40%] absolute bottom-[-20%] right-[-20%] rotate-[245deg]"/>
                     </div>
                 </div>
-                <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[30%]" />
+                <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[10%]" />
     </div>
 }
 export function BestIngredients(){
-    return <div className="flex flex-col items-center w-full h-screen">
-                        <div className="flex flex-col items-center w-[70%]">
+    return <div className="flex flex-col items-center w-full md:h-screen">
+                        <div className="flex flex-col items-center md:w-[70%]">
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
-                            <p className="font-noto text-4xl font-extrabold">The Best Ingredients</p>
-                            <p className=" pt-4 font-inter text- font-extralight text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, error tempore delectus earum officia ipsam, tempora mollitia minus ratione reprehenderit praesentium numquam deleniti inventore reiciendis molestias commodi non sint sapiente? Repudiandae deleniti perferendis ullam ex!</p>
+                            <p className="font-noto text-3xl md:text-4xl font-extrabold">The Best Ingredients</p>
+                            <p className=" pt-4 font-inter text-sm md:text-base font-extralight text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, error tempore delectus earum officia ipsam, tempora mollitia minus ratione reprehenderit praesentium numquam deleniti inventore reiciendis molestias commodi non sint sapiente? Repudiandae deleniti perferendis ullam ex!</p>
                         </div>
-                        <img src={ingredients} className="h-[65%] pt-6"/>
+                        <img src={ingredients} className="w-full md:w-auto md:h-[65%] pt-6"/>
     </div>
 }
 export function Reservation(){
-    return <div className="w-full h-[90vh] overflow-hidden relative">
+    return <div className="w-full md:h-[90vh] overflow-hidden relative">
                 <img className="w-full z-0 " src={fillinresturant} />
                 <div className="w-full h-full absolute top-0 left-0 z-10 bg-black opacity-30">
 
                 </div>
-                <div className="w-full h-full absolute top-0 z-20 left-0 flex gap-16 flex-col items-center justify-center">
+                <div className="w-full h-full absolute top-0 z-20 left-0 flex gap-8 md:gap-16 flex-col items-center justify-center">
                     <div>
                         <p className="text-center font-bonheur text-2xl">Reservation</p>
-                        <p className="text-center font-noto font-extrabold text-4xl">Book Your Table</p>
+                        <p className="text-center font-noto font-extrabold text-2xl md:text-4xl">Book Your Table</p>
                     </div>
                     <button className="w-fit border-white border-solid border-[0.02rem] py-2 px-3 font-noto font-bold text-sm">
                         Online Booking
@@ -219,12 +219,12 @@ export function Reservation(){
     </div>
 }
 export function Footer(){
-    return <div className="p-12  w-full flex justify-between items-center">
-                <div className="w-[25%] pt-8 flex flex-col ">
+    return <div className="md:p-12  w-full flex flex-col-reverse md:flex-row justify-between items-center">
+                <div className="md:w-[25%] pt-8 flex flex-col items-center justify-center">
                     <p className="text-yellow-300 " >Location</p>
                     <p className="text-noto font-light w-[60%] pt-4" >5,mufutau shobola ogba lagos,Nigeria</p>
                 </div>
-                <div className="w-[25%] pt-8">
+                <div className="md:w-[25%] pt-8">
                     <p className="text-yellow-300" >Working Hours</p>
                     <p className=" pt-4" >Monday - Thursday</p>
                     <p className=" " >Friday </p>
