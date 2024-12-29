@@ -19,9 +19,9 @@ import { useEffect, useState,useRef } from "react"
 import { CloseCircle, HambergerMenu } from "iconsax-react"
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP);
-
 
 const navLinks = [
     {
@@ -101,7 +101,7 @@ function DrawerNav({links=[],shouldOpen,closeFunction}){
     </div>
 }
 export function Attraction(){
-    return <div className="z-0 w-full h-[70vh] justify-center landscape:h-[80vh] flex flex-col lg:flex-row lg:justify-start items-center ">
+    return <div id="attraction" className="z-0 w-full h-[70vh] justify-center landscape:h-[80vh] flex flex-col lg:flex-row lg:justify-start items-center ">
                     <AttractionText/>
                     <AttractionImage image={steakDish1} />
     </div>
@@ -117,17 +117,39 @@ function AttractionText(){
             </div>
 }
 function AttractionImage({image}){
-    const panRef = useRef(null);
     useGSAP(()=>{
-        gsap.to("#pan",{y:"-2vh",duration:3})
+        gsap.registerPlugin(ScrollTrigger) ;
+        const timeline = gsap.timeline()
+        timeline.to("#pan",{
+            scrollTrigger:{
+                trigger:"#attraction",
+                start:"top top",
+                end:"center top",
+                scrub:0.5,
+                pin:true
+            },
+            y:"-100px",
+            duration:0.5,
+            ease:"power1"
+        })
+        timeline.to(["#wine","#topleft","#bottom"],{
+            scrollTrigger:{
+                trigger:"#pan",
+                start:"50px top",
+                scrub:1,
+            },
+            y:"-100px",
+            duration:0.5,
+            ease:"power1"
+        })
     })
 
-    return <div className="pt-8 md:pt-0 w-full md:w-[60%] md:h-full flex md:flex-row relative justify-center items-center ">
-                <img src={wine} className=" absolute h-[70%] md:h-[65%] right-0 md:right-[-15%] lg:right-[25%]"/>
-                <img src={topleftImg} className=" absolute h-[30%] left-0 top-0 md:h-[30%]  md:left-[-10%] md:top-0"/>
-                <img src={bottom} className=" absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-20%] lg:left-[-12%] md:bottom-[20%]"/>
+    return <div id="attraction" className="pt-8 md:pt-0 w-full md:w-[60%] md:h-full flex md:flex-row relative justify-center items-center ">
+                <img id="wine" src={wine} className=" absolute h-[70%] md:h-[65%] right-0 md:right-[-15%] lg:right-[25%]"/>
+                <img id="topleft" src={topleftImg} className=" absolute h-[30%] left-0 top-0 md:h-[30%]  md:left-[-10%] md:top-0"/>
+                <img id="bottom" src={bottom} className=" absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-20%] lg:left-[-12%] md:bottom-[20%]"/>
                 <div className=" w-full md:w-[90%] md:h-[90%] flex items-center justify-center md:justify-start ">
-                    <img id = "pan" src={image} ref={panRef} className="w-[60%] h-auto md:h-full md:w-auto rotate-[160deg] "/>
+                    <img id = "pan" src={image}  className="w-[60%] h-auto md:h-full md:w-auto rotate-[160deg] "/>
                 </div>
             </div>
 }
