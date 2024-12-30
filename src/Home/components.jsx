@@ -101,7 +101,7 @@ function DrawerNav({links=[],shouldOpen,closeFunction}){
     </div>
 }
 export function Attraction(){
-    return <div id="attraction" className="z-0 w-full h-[70vh] justify-center landscape:h-[80vh] flex flex-col lg:flex-row lg:justify-start items-center ">
+    return <div id="attraction" className="z-0 w-full h-fit justify-center landscape:h-[80vh] flex flex-col lg:flex-row lg:justify-start items-center ">
                     <AttractionText/>
                     <AttractionImage image={steakDish1} />
     </div>
@@ -125,17 +125,17 @@ function AttractionImage({image}){
                 trigger:"#attraction",
                 start:"top top",
                 end:"center top",
-                scrub:0.5,
-                pin:true
+                scrub:1,
             },
             y:"-100px",
+            rotation:"170deg",
             duration:0.5,
             ease:"power1"
         })
         timeline.to(["#wine","#topleft","#bottom"],{
             scrollTrigger:{
                 trigger:"#pan",
-                start:"50px top",
+                start:"25px top",
                 scrub:1,
             },
             y:"-100px",
@@ -184,15 +184,31 @@ export function OurMenu(){
                         <p className="text-[0.6rem] font-inter font-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam.</p>
                     </div>
                 </div>
-                <ADish title={"Appetizer"} summary={""} image={whitedish} />
-                <ADish direction={"rev"} title={"Main Dish"} summary={""} image={dish11} />
-                <ADish title={"Side Dish"} summary={""} image={dish13} />
-                <ADish direction={"rev"} title={"Desert"} summary={""} image={dish4} />
+                <ADish id={"dish1"}  title={"Appetizer"} summary={""} image={whitedish} />
+                <ADish id={"dish2"}  direction={"rev"} title={"Main Dish"} summary={""} image={dish11} />
+                <ADish id={"dish3"}  title={"Side Dish"} summary={""} image={dish13} />
+                <ADish id={"dish4"}  direction={"rev"} title={"Desert"} summary={""} image={dish4} />
     </div>
 }
-function ADish({direction,title,summary,image}){
+function ADish({direction,title,summary,image,id}){
+
+
+    useGSAP(()=>{
+        gsap.registerPlugin(ScrollTrigger)
+        gsap.to(`#${id}`,{
+            scrollTrigger:{
+                trigger:`#${id}`,
+                start:"top 70%",
+                scrub:1
+            },
+            rotate:"45deg",
+            duration:1,
+            ease:"power1.inOut"
+        })
+    },[id])
+
     return <div className={`px-0 md:px-8 lg:px-0 pb-6 flex ${(direction === "rev") ? "lg:flex-row-reverse flex-col":"flex-col lg:flex-row"} gap-9 md:gap-0 lg:gap-16 items-center lg:w-[70%] `}>
-                <img src={image} className={`w-[75%] md:w-[50%] lg:w-[35%] ${(direction === "rev") ? "self-end":"self-start"} lg:self-center`}/>
+                <img id={`${id}`} src={image} className={`w-[75%] md:w-[50%] lg:w-[35%] ${(direction === "rev") ? "self-end":"self-start"} lg:self-center`}/>
                 <div className={`px-0 md:px-4 lg:px-0 w-[75%] ${(direction === "rev") ? "self-start":"self-end"} lg:self-center md:w-[50%] lg:w-[40%]`}>
                     <p className="font-bonheur text-3xl text-orange-300 m-0">{title}</p>
                     <p className="text-[0.6rem] font-inter font-light">{summary || "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam."}</p>
