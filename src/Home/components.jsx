@@ -233,8 +233,31 @@ function ADish({direction,title,summary,image,id}){
     </div>
 }
 export function UpcomingEvents(){
+
+    useGSAP(()=>{
+        gsap.to("#topsaltcoming",{
+            scrollTrigger:{
+                trigger:"#topsaltcoming",
+                start:"top 50%",
+                scrub:1,
+            },
+            y:"-40px",
+            scale:"1.5"
+        })
+
+        gsap.to("#bottomsaltcoming",{
+            scrollTrigger:{
+                trigger:"#bottomsaltcoming",
+                start:"top 50%",
+                scrub:1,
+            },
+            y:"-40px",
+            scale:"0.8"
+        })
+    })
+
     return <div className="z-0 w-full  pt-16 lg:pt-0 lg:h-screen relative flex items-center justify-center">
-                <img src={salt} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[4%] lg:left-6" />
+                <img id ="topsaltcoming" src={salt} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[8%] lg:left-6" />
                 <div className="w-full h-full md:w-[70%] lg:w-[85%] lg:h-[70%] flex flex-col-reverse lg:flex-row z-10 relative">
                     <img src={our_story_dish} className="w-[100%] lg:h-[100%] lg:w-auto "  />
                     <div className="lg:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
@@ -253,7 +276,7 @@ export function UpcomingEvents(){
                         <img src={spoon} className="h-[40%] absolute bottom-[-20%] right-[-20%] rotate-[245deg]"/>
                     </div>
                 </div>
-                <img src={salt2}  className="absolute w-[35%] z-0 bottom-[5%] left-[10%] rotate-90" />
+                <img src={salt2} id="bottomsaltcoming" className="absolute w-[40%] z-0 bottom-[8%] left-[10%] rotate-90" />
 
     </div>
 }
