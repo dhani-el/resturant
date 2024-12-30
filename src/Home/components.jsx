@@ -19,8 +19,8 @@ import dish13 from "../assets/dish13.png"
 import dish11 from "../assets/dish11.png"
 import dish4 from "../assets/dish4.png"
 import spoon from "../assets/spoon.png"
-import ingredients from "../assets/ingredients.jpg"
-import fillinresturant from "../assets/fillinresturant.jpeg"
+import ingredients from "../assets/bestIngredients.png"
+import fillinresturant from "../assets/resturant1.jpg"
 import { useEffect, useState,useRef } from "react"
 import { CloseCircle, HambergerMenu } from "iconsax-react"
 import gsap from "gsap";
@@ -281,18 +281,46 @@ export function UpcomingEvents(){
     </div>
 }
 export function BestIngredients(){
-    return <div className="flex flex-col items-center w-full md:h-screen">
+
+    useGSAP(()=>{
+        gsap.to("#ingredientsImage",{
+            scrollTrigger:{
+                trigger:"#ingredientsImage",
+                top:"top 65%",
+                scrub:1
+            },
+            scale:1.2,
+            y:"-5%",
+            duration:1,
+            ease:"expo.inOut"
+        })
+    })
+
+    return <div  className="flex flex-col items-center w-full md:h-screen">
                         <div className="flex flex-col items-center md:w-[70%]">
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
                             <p className="font-noto text-3xl md:text-4xl font-extrabold">The Best Ingredients</p>
                             <p className=" pt-4 font-inter text-sm md:text-base font-extralight text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, error tempore delectus earum officia ipsam, tempora mollitia minus ratione reprehenderit praesentium numquam deleniti inventore reiciendis molestias commodi non sint sapiente? Repudiandae deleniti perferendis ullam ex!</p>
                         </div>
-                        <img src={ingredients} className="w-full md:w-auto md:h-[65%] pt-6"/>
+                        <img id="ingredientsImage" src={ingredients} className="w-[96%] md:w-auto md:h-[62%] pt-6"/>
     </div>
 }
 export function Reservation(){
-    return <div className="w-full lg:h-[90vh] overflow-hidden relative">
-                <img className="w-full z-0 " src={fillinresturant} />
+    useGSAP(()=>{
+        gsap.to("#resturantImage",{
+            scrollTrigger:{
+                trigger:"#resturantImage",
+                top:"top 65%",
+                scrub:1
+            },
+            scale:1.2,
+            y:"-5%",
+            duration:1,
+            ease:"expo.inOut"
+        })
+    })
+    return <div className="w-full lg:h-[70vh] overflow-hidden relative">
+                <img id="resturantImage" className="w-full max-w-[100%] z-0 " src={fillinresturant} />
                 <div className="w-full h-full absolute top-0 left-0 z-10 bg-black opacity-30">
 
                 </div>
