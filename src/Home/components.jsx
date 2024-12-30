@@ -141,7 +141,7 @@ function AttractionImage({image}){
     })
 
     return <div id="attraction" className="pt-8 md:pt-0 w-full md:w-[60%] md:h-full flex md:flex-row relative justify-center items-center ">
-                <img id="wine" src={tomatospoon} className=" z-10 absolute top-[6%] h-[60%] md:h-[65%] right-[-30%] md:right-[-55%] xl:top-[-2%] xl:rotate-[20deg] xl:right-[10%] xl:right-[-5%]"/>
+                <img id="wine" src={tomatospoon} className=" z-10 absolute top-[6%] h-[60%] md:h-[65%] right-[-30%] md:right-[-55%] xl:top-[-2%] xl:rotate-[20deg]  xl:right-[-5%]"/>
                 <img id="wine" src={herb1} className=" z-10 absolute h-[30%] md:h-[30%] right-4 md:right-[-15%] xl:right-[25%] xl:rotate-[20deg] "/>
                 <img id="wine" src={salt} className=" z-0 absolute h-[70%] md:h-[65%] right-0 md:right-[-15%]  xl:right-[45%] xl:top-0"/>
                 <img id="wine" src={blackpepper} className=" z-[5] absolute h-[50%] md:h-[35%] right-[35%] md:right-[45%] xl:right-[55%] xl:bottom-28"/>
