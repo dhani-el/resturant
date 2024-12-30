@@ -1,7 +1,13 @@
 
 import steakDish1 from "../assets/dish15.png"
 import steakBg from "../assets/bgCombination.png"
-import wine from "../assets/wine.png"
+import salt from "../assets/salt2.png"
+import salt2 from "../assets/salt1.png"
+import salt3 from "../assets/salt3.png"
+import blackpepper from "../assets/blackpepper2.png"
+import tomatospoon from "../assets/tomatospoon.png"
+import herb1 from "../assets/herb3.png"
+import herb2 from "../assets/herb5.png"
 import topleftImg from "../assets/toptomato.png"
 import bottom from "../assets/bottomtomatoandmushroom.png"
 import rodo from "../assets/rodo.png"
@@ -120,7 +126,7 @@ function AttractionImage({image}){
     useGSAP(()=>{
         gsap.registerPlugin(ScrollTrigger) ;
         const timeline = gsap.timeline()
-        timeline.to("#pan",{
+        timeline.to(["#pan","#topleft","#wine","#bottom"],{
             scrollTrigger:{
                 trigger:"#attraction",
                 start:"top top",
@@ -128,24 +134,17 @@ function AttractionImage({image}){
                 scrub:1,
             },
             y:"-100px",
-            rotation:"170deg",
             duration:0.5,
-            ease:"power1"
-        })
-        timeline.to(["#wine","#topleft","#bottom"],{
-            scrollTrigger:{
-                trigger:"#pan",
-                start:"25px top",
-                scrub:1,
-            },
-            y:"-100px",
-            duration:0.5,
-            ease:"power1"
+            ease:"sine.inOut",
+            stagger:0.3
         })
     })
 
     return <div id="attraction" className="pt-8 md:pt-0 w-full md:w-[60%] md:h-full flex md:flex-row relative justify-center items-center ">
-                <img id="wine" src={wine} className=" absolute h-[70%] md:h-[65%] right-0 md:right-[-15%] lg:right-[25%]"/>
+                <img id="wine" src={tomatospoon} className=" absolute h-[70%] md:h-[65%] right-0 md:right-[-15%] lg:top-[-2%] lg:rotate-[20deg] lg:right-[10%]"/>
+                <img id="wine" src={herb1} className=" absolute h-[70%] md:h-[35%] right-0 md:right-[-15%] lg:right-[25%] lg:rotate-[20deg] "/>
+                <img id="wine" src={salt} className=" absolute h-[70%] md:h-[65%] right-0 md:right-[-15%] lg:right-[45%] lg:top-0"/>
+                <img id="wine" src={blackpepper} className=" absolute h-[70%] md:h-[35%] right-0 md:right-[-15%] lg:right-[55%] lg:bottom-28"/>
                 <img id="topleft" src={topleftImg} className=" absolute h-[30%] left-0 top-0 md:h-[30%]  md:left-[-10%] md:top-0"/>
                 <img id="bottom" src={bottom} className=" absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-20%] lg:left-[-12%] md:bottom-[20%]"/>
                 <div className=" w-full md:w-[90%] md:h-[90%] flex items-center justify-center md:justify-start ">
@@ -154,8 +153,21 @@ function AttractionImage({image}){
             </div>
 }
 export function OurStory(){
-    return <div className="z-0 w-full  pt-16 lg:pt-0 lg:h-screen relative flex items-center justify-center">
-                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[4%] lg:left-6" />
+
+    useGSAP(()=>{
+        gsap.to("#topsalt",{
+            scrollTrigger:{
+                trigger:"#topsalt",
+                start:"top 50%",
+                scrub:1,
+            },
+            y:"-50px",
+            scale:"1.2"
+        })
+    })
+
+    return <div id="ourStory" className="z-0 w-full  pt-16 lg:pt-0 lg:h-screen relative flex items-center justify-center">
+                <img id="topsalt" src={salt2} className="absolute w-[18%] z-0 top-[4%] rotate-45 left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[6%] lg:left-6" />
                 <div className="w-full h-full md:w-[70%] lg:w-[85%] lg:h-[70%] flex flex-col-reverse lg:flex-row z-10 relative ">
                     <img src={our_story_dish} className="w-[100%] lg:h-[100%] lg:w-auto "  />
                     <div className="lg:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
@@ -167,10 +179,10 @@ export function OurStory(){
                         <button className="font-inter text-orange-300 text-sm font-light">
                             More About Us 
                         </button>
-                        <img src={herb} className="h-[35%] absolute bottom-[-10%] right-[-5%] rotate-[270deg]"/>
+                        <img src={herb2} className="h-[40%] absolute bottom-[-10%] right-[-8%] rotate-[45deg]"/>
                     </div>
                 </div>
-                <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[10%]" />
+                <img src={salt}  className="absolute w-[35%] z-0 bottom-[5%] left-[10%] rotate-90" />
     </div>
 }
 export function OurMenu(){
@@ -198,7 +210,7 @@ function ADish({direction,title,summary,image,id}){
         gsap.to(`#${id}`,{
             scrollTrigger:{
                 trigger:`#${id}`,
-                start:"top 70%",
+                start:"top 65%",
                 scrub:1
             },
             rotate:"45deg",
@@ -208,8 +220,13 @@ function ADish({direction,title,summary,image,id}){
     },[id])
 
     return <div className={`px-0 md:px-8 lg:px-0 pb-6 flex ${(direction === "rev") ? "lg:flex-row-reverse flex-col":"flex-col lg:flex-row"} gap-9 md:gap-0 lg:gap-16 items-center lg:w-[70%] `}>
-                <img id={`${id}`} src={image} className={`w-[75%] md:w-[50%] lg:w-[35%] ${(direction === "rev") ? "self-end":"self-start"} lg:self-center`}/>
-                <div className={`px-0 md:px-4 lg:px-0 w-[75%] ${(direction === "rev") ? "self-start":"self-end"} lg:self-center md:w-[50%] lg:w-[40%]`}>
+                <div className={`w-[75%] md:w-[50%] lg:w-[35%] ${(direction === "rev") ? "self-end":"self-start"} lg:self-center relative`}>
+                    <img src={(direction === "rev") ? tomato : herb1} className={`absolute ${(direction === "rev") ?"w-[20%] bottom-0 right-0":"w-[28%] bottom-0 left-[-5%] rotate-[310deg]"} `}/>
+                    <img src={salt3} className={`absolute w-[200%] h-auto   ${(direction === "rev") ? "left-[-70%] bottom-[-40%] rotate-[155deg]":"left-[70%] bottom-[-50%] rotate-45"}`}/>
+                    <img src={salt2} className="absolute w-[120%] h-[100%] rotate-45  "/>
+                    <img id={`${id}`} src={image} className={`w-[100%]`}/>
+                </div>
+                <div className={` z-10 px-0 md:px-4 lg:px-0 w-[75%] ${(direction === "rev") ? "self-start":"self-end"} lg:self-center md:w-[50%] lg:w-[40%]`}>
                     <p className="font-bonheur text-3xl text-orange-300 m-0">{title}</p>
                     <p className="text-[0.6rem] font-inter font-light">{summary || "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad adipisci corrupti totam, nobis alias reprehenderit delectus error dolores! Voluptatem, ipsum accusamus. Recusandae quod molestiae aliquam."}</p>
                 </div>
@@ -217,7 +234,7 @@ function ADish({direction,title,summary,image,id}){
 }
 export function UpcomingEvents(){
     return <div className="z-0 w-full  pt-16 lg:pt-0 lg:h-screen relative flex items-center justify-center">
-                <img src={rodo} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[4%] lg:left-6" />
+                <img src={salt} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[4%] lg:left-6" />
                 <div className="w-full h-full md:w-[70%] lg:w-[85%] lg:h-[70%] flex flex-col-reverse lg:flex-row z-10 relative">
                     <img src={our_story_dish} className="w-[100%] lg:h-[100%] lg:w-auto "  />
                     <div className="lg:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
@@ -236,7 +253,8 @@ export function UpcomingEvents(){
                         <img src={spoon} className="h-[40%] absolute bottom-[-20%] right-[-20%] rotate-[245deg]"/>
                     </div>
                 </div>
-                <img src={tomato}  className="absolute w-[10%] z-0 bottom-[8%] left-[10%]" />
+                <img src={salt2}  className="absolute w-[35%] z-0 bottom-[5%] left-[10%] rotate-90" />
+
     </div>
 }
 export function BestIngredients(){
