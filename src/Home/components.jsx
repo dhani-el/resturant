@@ -141,13 +141,13 @@ function AttractionImage({image}){
     })
 
     return <div id="attraction" className="pt-8 md:pt-0 w-full md:w-[60%] md:h-full flex md:flex-row relative justify-center items-center ">
-                <img id="wine" src={tomatospoon} className=" absolute h-[70%] md:h-[65%] right-0 md:right-[-15%] lg:top-[-2%] lg:rotate-[20deg] lg:right-[10%]"/>
-                <img id="wine" src={herb1} className=" absolute h-[70%] md:h-[35%] right-0 md:right-[-15%] lg:right-[25%] lg:rotate-[20deg] "/>
-                <img id="wine" src={salt} className=" absolute h-[70%] md:h-[65%] right-0 md:right-[-15%] lg:right-[45%] lg:top-0"/>
-                <img id="wine" src={blackpepper} className=" absolute h-[70%] md:h-[35%] right-0 md:right-[-15%] lg:right-[55%] lg:bottom-28"/>
-                <img id="topleft" src={topleftImg} className=" absolute h-[30%] left-0 top-0 md:h-[30%]  md:left-[-10%] md:top-0"/>
-                <img id="bottom" src={bottom} className=" absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-20%] lg:left-[-12%] md:bottom-[20%]"/>
-                <div className=" w-full md:w-[90%] md:h-[90%] flex items-center justify-center md:justify-start ">
+                <img id="wine" src={tomatospoon} className=" z-10 absolute top-[6%] h-[60%] md:h-[65%] right-[-30%] md:right-[-55%] lg:top-[-2%] lg:rotate-[20deg] lg:right-[10%] xl:right-[-5%]"/>
+                <img id="wine" src={herb1} className=" z-10 absolute h-[30%] md:h-[30%] right-4 md:right-[-15%] lg:right-[25%] lg:rotate-[20deg] "/>
+                <img id="wine" src={salt} className=" z-0 absolute h-[70%] md:h-[65%] right-0 md:right-[-15%] lg:right-[45%] lg:top-0"/>
+                <img id="wine" src={blackpepper} className=" z-[5] absolute h-[50%] md:h-[35%] right-[35%] md:right-[45%] lg:right-[55%] lg:bottom-28"/>
+                <img id="topleft" src={topleftImg} className=" z-10 absolute h-[30%] left-0 top-0 md:h-[30%]  md:left-[-10%] md:top-0"/>
+                <img id="bottom" src={bottom} className=" z-10 absolute h-[30%] md:h-[30%] left-0 bottom-[10%] md:left-[-20%] lg:left-[-12%] md:bottom-[20%]"/>
+                <div className=" z-10 w-full md:w-[90%] md:h-[90%] flex items-center justify-center md:justify-start ">
                     <img id = "pan" src={image}  className="w-[60%] h-auto md:h-full md:w-auto rotate-[160deg] "/>
                 </div>
             </div>
@@ -167,7 +167,7 @@ export function OurStory(){
     })
 
     return <div id="ourStory" className="z-0 w-full  pt-16 lg:pt-0 lg:h-screen relative flex items-center justify-center">
-                <img id="topsalt" src={salt2} className="absolute w-[18%] z-0 top-[4%] rotate-45 left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[6%] lg:left-6" />
+                <img id="topsalt" src={salt2} className="absolute w-[55%] lg:w-[18%] z-0 top-[4%] rotate-45 left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[6%] lg:left-6" />
                 <div className="w-full h-full md:w-[70%] lg:w-[85%] lg:h-[70%] flex flex-col-reverse lg:flex-row z-10 relative ">
                     <img src={our_story_dish} className="w-[100%] lg:h-[100%] lg:w-auto "  />
                     <div className="lg:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
@@ -182,7 +182,7 @@ export function OurStory(){
                         <img src={herb2} className="h-[40%] absolute bottom-[-10%] right-[-8%] rotate-[45deg]"/>
                     </div>
                 </div>
-                <img src={salt}  className="absolute w-[35%] z-0 bottom-[5%] left-[10%] rotate-90" />
+                <img src={salt}  className="absolute w-[75%] lg:w-[35%] z-0 bottom-[-5%] lg:bottom-[5%] left-[-15%] lg:left-[10%] rotate-90" />
     </div>
 }
 export function OurMenu(){
@@ -222,7 +222,7 @@ function ADish({direction,title,summary,image,id}){
     return <div className={`px-0 md:px-8 lg:px-0 pb-6 flex ${(direction === "rev") ? "lg:flex-row-reverse flex-col":"flex-col lg:flex-row"} gap-9 md:gap-0 lg:gap-16 items-center lg:w-[70%] `}>
                 <div className={`w-[75%] md:w-[50%] lg:w-[35%] ${(direction === "rev") ? "self-end":"self-start"} lg:self-center relative`}>
                     <img src={(direction === "rev") ? tomato : herb1} className={`absolute ${(direction === "rev") ?"w-[20%] bottom-0 right-0":"w-[28%] bottom-0 left-[-5%] rotate-[310deg]"} `}/>
-                    <img src={salt3} className={`absolute w-[200%] h-auto   ${(direction === "rev") ? "left-[-70%] bottom-[-40%] rotate-[155deg]":"left-[70%] bottom-[-50%] rotate-45"}`}/>
+                    <img src={salt3} className={`absolute w-[200%] h-auto   ${(direction === "rev") ? " left-0 lg:left-[-70%] bottom-[-15%] lg:bottom-[-40%] rotate-[155deg]":"left-0 lg:left-[70%] bottom-[-15%] lg:bottom-[-50%] rotate-45"}`}/>
                     <img src={salt2} className="absolute w-[120%] h-[100%] rotate-45  "/>
                     <img id={`${id}`} src={image} className={`w-[100%]`}/>
                 </div>
@@ -257,7 +257,7 @@ export function UpcomingEvents(){
     })
 
     return <div className="z-0 w-full  pt-16 lg:pt-0 lg:h-screen relative flex items-center justify-center">
-                <img id ="topsaltcoming" src={salt} className="absolute w-[18%] z-0 top-[4%] left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[8%] lg:left-6" />
+                <img id ="topsaltcoming" src={salt} className="absolute w-[55%] lg:w-[18%] z-0 top-[4%] left-[-5%] md:top-[2%] md:left-[3rem] lg:top-[8%] lg:left-6" />
                 <div className="w-full h-full md:w-[70%] lg:w-[85%] lg:h-[70%] flex flex-col-reverse lg:flex-row z-10 relative">
                     <img src={our_story_dish} className="w-[100%] lg:h-[100%] lg:w-auto "  />
                     <div className="lg:w-[50%] bg-white relative text-black p-8 md:p-16 flex flex-col gap-4 justify-center items-start">
@@ -276,7 +276,7 @@ export function UpcomingEvents(){
                         <img src={spoon} className="h-[40%] absolute bottom-[-20%] right-[-20%] rotate-[245deg]"/>
                     </div>
                 </div>
-                <img src={salt2} id="bottomsaltcoming" className="absolute w-[40%] z-0 bottom-[8%] left-[10%] rotate-90" />
+                <img src={salt2} id="bottomsaltcoming" className="absolute w-[65%] bottom-[-8%] lg:w-[40%] z-0 lg:bottom-[8%] left-[10%] rotate-90" />
 
     </div>
 }
@@ -296,13 +296,13 @@ export function BestIngredients(){
         })
     })
 
-    return <div  className="flex flex-col items-center w-full md:h-screen">
+    return <div  className="flex flex-col items-center w-full lg:h-screen">
                         <div className="flex flex-col items-center md:w-[70%]">
                             <p className="font-bonheur text-orange-300 text-2xl">Discover</p>
                             <p className="font-noto text-3xl md:text-4xl font-extrabold">The Best Ingredients</p>
                             <p className=" pt-4 font-inter text-sm md:text-base font-extralight text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, error tempore delectus earum officia ipsam, tempora mollitia minus ratione reprehenderit praesentium numquam deleniti inventore reiciendis molestias commodi non sint sapiente? Repudiandae deleniti perferendis ullam ex!</p>
                         </div>
-                        <img id="ingredientsImage" src={ingredients} className="w-[96%] md:w-auto md:h-[62%] pt-6"/>
+                        <img id="ingredientsImage" src={ingredients} className="w-[96%] md:w-[90%] h-auto lg:w-auto lg:h-[62%] pt-6"/>
     </div>
 }
 export function Reservation(){
