@@ -133,7 +133,7 @@ function AttractionImage({image}){
             y:"-100px",
             duration:0.5,
             ease:"sine.inOut",
-            stagger:0.3
+            stagger:0.1
         })
     })
 
