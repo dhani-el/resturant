@@ -3,10 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    @font-face {
-      font-family: 'italliano';
-      src: url(./fonts/italianno-Regular.ttf);
-    }
+
     @font-face {
       font-family: 'bonheur';
       src: url(./fonts/BonheurRoyale-Regular.ttf);
@@ -19,18 +16,12 @@
       font-family: 'inter';
       src: url(./fonts/inter.ttf);
     }
-    @font-face {
-      font-family: 'inter-itallic';
-      src: url(./fonts/inter_itallic.ttf);
-    }
+
     @font-face {
       font-family: 'noto';
       src: url(./fonts/noto.ttf);
     }
-    @font-face {
-      font-family: 'noto-itallic';
-      src: url(./fonts/noto_itallic.ttf);
-    }
+
   }
 
 
